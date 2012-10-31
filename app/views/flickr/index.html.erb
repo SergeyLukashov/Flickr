@@ -1,0 +1,21 @@
+
+<h1>Flickr</h1>
+
+<p>
+<%= form_tag(:action=>:search, :method => "get") do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+  <br/>
+<div id ="flickr_images">
+    <% if !@photos.nil? %>
+    <% @photos.each do |photo| %>
+    <a href="<%=  make_flickr_url(photo,'b') %>"><img src="<%=  make_flickr_url(photo,'s') %>"></img></a>
+    <% end %>
+  <% end %>
+</div>
+</p>
+
+
+
